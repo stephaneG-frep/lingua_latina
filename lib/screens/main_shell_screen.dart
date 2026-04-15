@@ -4,6 +4,7 @@ import 'package:lingua_latina/screens/dictionary_screen.dart';
 import 'package:lingua_latina/screens/lessons_screen.dart';
 import 'package:lingua_latina/screens/profile_screen.dart';
 import 'package:lingua_latina/screens/quiz_screen.dart';
+import 'package:lingua_latina/screens/translator_screen.dart';
 
 class MainShellScreen extends StatefulWidget {
   const MainShellScreen({super.key, this.initialIndex = 0});
@@ -22,6 +23,7 @@ class _MainShellScreenState extends State<MainShellScreen> {
   final List<Widget> _pages = const [
     LessonsScreen(),
     DictionaryScreen(),
+    TranslatorScreen(),
     QuizScreen(),
     CultureScreen(),
     ProfileScreen(),
@@ -30,6 +32,7 @@ class _MainShellScreenState extends State<MainShellScreen> {
   final List<String> _titles = const [
     'Lecons',
     'Dictionnaire',
+    'Traducteur',
     'Quiz',
     'Culture',
     'Profil',
@@ -68,6 +71,11 @@ class _MainShellScreenState extends State<MainShellScreen> {
             icon: Icon(Icons.translate_outlined),
             selectedIcon: Icon(Icons.translate_rounded),
             label: 'Dico',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.g_translate_outlined),
+            selectedIcon: Icon(Icons.g_translate_rounded),
+            label: 'Trad.',
           ),
           NavigationDestination(
             icon: Icon(Icons.quiz_outlined),

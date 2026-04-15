@@ -75,19 +75,24 @@ class WelcomeScreen extends StatelessWidget {
                         onTap: () => _openTab(context, 1),
                       ),
                       MenuCard(
+                        title: 'Traducteur',
+                        icon: Icons.g_translate_rounded,
+                        onTap: () => _openTab(context, 2),
+                      ),
+                      MenuCard(
                         title: 'Quiz',
                         icon: Icons.quiz_rounded,
-                        onTap: () => _openTab(context, 2),
+                        onTap: () => _openTab(context, 3),
                       ),
                       MenuCard(
                         title: 'Culture',
                         icon: Icons.temple_buddhist_rounded,
-                        onTap: () => _openTab(context, 3),
+                        onTap: () => _openTab(context, 4),
                       ),
                       MenuCard(
                         title: 'Profil',
                         icon: Icons.person_rounded,
-                        onTap: () => _openTab(context, 4),
+                        onTap: () => _openTab(context, 5),
                       ),
                     ],
                   ),

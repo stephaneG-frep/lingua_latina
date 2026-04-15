@@ -526,6 +526,26 @@ const List<CultureItem> mockLatinQuotes = [
     french: 'Le sort en est jete',
     context: 'Expression celebre liee au passage du Rubicon.',
   ),
+  CultureItem(
+    latin: 'Si vis pacem, para bellum',
+    french: 'Si tu veux la paix, prepare la guerre',
+    context: 'Maxime politique et militaire tres connue.',
+  ),
+  CultureItem(
+    latin: 'Verba volant, scripta manent',
+    french: 'Les paroles s envolent, les ecrits restent',
+    context: 'Souligne la valeur durable de l ecrit.',
+  ),
+  CultureItem(
+    latin: 'Errare humanum est',
+    french: 'L erreur est humaine',
+    context: 'Expression philosophique encore tres citee.',
+  ),
+  CultureItem(
+    latin: 'In vino veritas',
+    french: 'Dans le vin, la verite',
+    context: 'Proverbe selon lequel la verite se revele en buvant.',
+  ),
 ];
 
 const List<CultureItem> mockLatinExpressions = [
@@ -544,11 +564,80 @@ const List<CultureItem> mockLatinExpressions = [
     french: 'Parcours de vie',
     context: 'Terme universel pour le CV professionnel.',
   ),
+  CultureItem(
+    latin: 'Vice versa',
+    french: 'Inversement',
+    context: 'Expression commune dans la langue courante.',
+  ),
+  CultureItem(
+    latin: 'Persona non grata',
+    french: 'Personne indesirable',
+    context: 'Utilisee en diplomatie et dans le langage courant.',
+  ),
+  CultureItem(
+    latin: 'A priori',
+    french: 'Au premier abord',
+    context: 'Tres frequent en francais contemporain.',
+  ),
+  CultureItem(
+    latin: 'A posteriori',
+    french: 'Apres coup',
+    context: 'Souvent oppose a a priori.',
+  ),
+  CultureItem(
+    latin: 'Modus operandi',
+    french: 'Maniere d agir',
+    context: 'Terme utilise en droit, enquete et strategie.',
+  ),
+  CultureItem(
+    latin: 'In extremis',
+    french: 'Au tout dernier moment',
+    context: 'Expression populaire en francais.',
+  ),
+  CultureItem(
+    latin: 'Ad hoc',
+    french: 'Pour cela, adapte',
+    context: 'Utilise pour une solution precise.',
+  ),
+];
+
+const List<CultureItem> mockLatinAuthors = [
+  CultureItem(
+    latin: 'Cicero',
+    french: 'Orateur et philosophe romain',
+    context: 'Reference majeure du latin classique.',
+  ),
+  CultureItem(
+    latin: 'Virgilius',
+    french: 'Poete de l Eneide',
+    context: 'Auteur central pour la culture romaine.',
+  ),
+  CultureItem(
+    latin: 'Ovidius',
+    french: 'Poete des Metamorphoses',
+    context: 'Influence durable sur la litterature europeenne.',
+  ),
+  CultureItem(
+    latin: 'Seneca',
+    french: 'Philosophe stoicien',
+    context: 'Connu pour ses textes moraux et politiques.',
+  ),
+];
+
+const List<String> mockLatinTimeline = [
+  'VIIIe siecle av. J.-C. : naissance de Rome et premiers usages du latin.',
+  'Ier siecle av. J.-C. : age d or du latin classique (Ciceron, Cesar, Virgile).',
+  'Ier-Ve siecle : expansion du latin dans tout l Empire romain.',
+  'Moyen Age : latin langue savante de l Eglise, du droit et des universites.',
+  'Renaissance : retour aux textes antiques et latin humaniste.',
+  'Epoque moderne : recul du latin parle, mais forte presence scientifique.',
+  'Aujourd hui : heritage vivant dans les langues romanes et le vocabulaire savant.',
 ];
 
 const String latinHistoryText =
     'Le latin est la langue de la Rome antique. Il a structure le droit, la litterature et la science en Europe pendant des siecles. '
-    'Bien qu il ne soit plus langue maternelle, il reste vivant a travers les langues romanes, les expressions courantes et la culture classique.';
+    'Bien qu il ne soit plus langue maternelle, il reste vivant a travers les langues romanes, les expressions courantes et la culture classique. '
+    'Le francais, l italien, l espagnol, le portugais et le roumain en portent encore une empreinte profonde.';
 
 const List<UserBadge> availableBadges = [
   UserBadge(
