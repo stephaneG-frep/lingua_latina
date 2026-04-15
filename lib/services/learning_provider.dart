@@ -10,10 +10,12 @@ class LearningProvider extends ChangeNotifier {
   final LocalStorageService _storageService;
 
   Set<String> _completedLessonIds = <String>{};
+  Set<String> _favoriteWords = <String>{};
   int _totalScore = 0;
   String _userName = 'Discipulus';
 
   Set<String> get completedLessonIds => _completedLessonIds;
+  Set<String> get favoriteWords => _favoriteWords;
   int get totalScore => _totalScore;
   String get userName => _userName;
 
@@ -30,6 +32,7 @@ class LearningProvider extends ChangeNotifier {
 
   Future<void> loadState() async {
     _completedLessonIds = _storageService.getCompletedLessonIds();
+    _favoriteWords = _storageService.getFavoriteWords();
     _totalScore = _storageService.getTotalScore();
     _userName = _storageService.getUserName();
     notifyListeners();
@@ -57,6 +60,21 @@ class LearningProvider extends ChangeNotifier {
     if (trimmed.isEmpty) return;
     _userName = trimmed;
     await _storageService.saveUserName(_userName);
+    notifyListeners();
+  }
+
+  bool isFavoriteWord(String latinWord) {
+    return _favoriteWords.contains(latinWord.toLowerCase());
+  }
+
+  Future<void> toggleFavoriteWord(String latinWord) async {
+    final key = latinWord.toLowerCase();
+    if (_favoriteWords.contains(key)) {
+      _favoriteWords = _favoriteWords.where((word) => word != key).toSet();
+    } else {
+      _favoriteWords = {..._favoriteWords, key};
+    }
+    await _storageService.saveFavoriteWords(_favoriteWords);
     notifyListeners();
   }
 
