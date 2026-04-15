@@ -40,7 +40,7 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
           ),
           const SizedBox(height: 8),
           Text(
-            'Traduction locale FR <-> Latin pour debuter rapidement.',
+            'Traduction locale FR <-> Latin + conversion chiffres arabes/romains.',
             style: TextStyle(color: colorScheme.onSurfaceVariant),
           ),
           const SizedBox(height: 14),
@@ -70,8 +70,8 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
             maxLines: 4,
             decoration: InputDecoration(
               hintText: _direction == TranslationDirection.frenchToLatin
-                  ? 'Ex: Rome est grande'
-                  : 'Ex: Roma magna est',
+                  ? 'Ex: Rome est grande ou 14'
+                  : 'Ex: Roma magna est ou XIV',
               alignLabelWithHint: true,
             ),
           ),
@@ -138,6 +138,24 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
                           color: colorScheme.primary,
+                        ),
+                      ),
+                    ),
+                  ],
+                  if (_result?.usedRomanRule == true) ...[
+                    const SizedBox(height: 10),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(999),
+                        color: colorScheme.secondary.withValues(alpha: 0.20),
+                      ),
+                      child: Text(
+                        'Conversion chiffres arabes/romains activee',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: colorScheme.secondary,
                         ),
                       ),
                     ),
