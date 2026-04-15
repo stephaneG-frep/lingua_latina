@@ -10,6 +10,7 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     final width = MediaQuery.of(context).size.width;
     final horizontal = width < 360 ? 16.0 : 22.0;
 
@@ -31,10 +32,11 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-                const Center(
+                Center(
                   child: Text(
                     'Apprends le latin pas a pas, avec clarte et plaisir.',
                     textAlign: TextAlign.center,
+                    style: TextStyle(color: colorScheme.onSurfaceVariant),
                   ),
                 ),
                 const SizedBox(height: 22),
@@ -46,9 +48,13 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                const Text(
+                Text(
                   'Acces rapide',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: colorScheme.onSurface,
+                  ),
                 ),
                 const SizedBox(height: 12),
                 Expanded(

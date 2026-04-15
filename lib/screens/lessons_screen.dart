@@ -11,16 +11,25 @@ class LessonsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return AppBackground(
       child: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          const Text(
+          Text(
             'Parcours debutant',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+              color: colorScheme.onSurface,
+            ),
           ),
           const SizedBox(height: 8),
-          const Text('Choisis une lecon et progresse a ton rythme.'),
+          Text(
+            'Choisis une lecon et progresse a ton rythme.',
+            style: TextStyle(color: colorScheme.onSurfaceVariant),
+          ),
           const SizedBox(height: 16),
           Consumer<LearningProvider>(
             builder: (context, provider, child) {

@@ -15,16 +15,27 @@ class MenuCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(20),
       child: Ink(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: colorScheme.surface,
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: AppTheme.softGold.withValues(alpha: 0.5)),
-          boxShadow: const [
-            BoxShadow(color: Color(0x16000000), blurRadius: 12, offset: Offset(0, 6)),
+          border: Border.all(
+            color: isDark
+                ? AppTheme.softGold.withValues(alpha: 0.45)
+                : AppTheme.softGold.withValues(alpha: 0.5),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: isDark ? const Color(0x26000000) : const Color(0x16000000),
+              blurRadius: 12,
+              offset: const Offset(0, 6),
+            ),
           ],
         ),
         child: Padding(
@@ -32,14 +43,14 @@ class MenuCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon, color: AppTheme.bordeaux, size: 30),
+              Icon(icon, color: colorScheme.primary, size: 30),
               const SizedBox(height: 10),
               Text(
                 title,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.w700,
-                  color: AppTheme.anthracite,
+                  color: colorScheme.onSurface,
                 ),
               ),
             ],

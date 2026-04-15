@@ -21,6 +21,7 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     final provider = context.watch<LearningProvider>();
     final categories = _buildCategories();
     final filtered = mockDictionaryEntries.where((entry) {
@@ -99,7 +100,10 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
               alignment: Alignment.centerLeft,
               child: Text(
                 '${filtered.length} resultat(s)',
-                style: const TextStyle(fontSize: 12, color: Colors.black54),
+                style: TextStyle(
+                  fontSize: 12,
+                  color: colorScheme.onSurfaceVariant,
+                ),
               ),
             ),
             const SizedBox(height: 8),
@@ -131,7 +135,7 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
     showModalBottomSheet<void>(
       context: context,
       showDragHandle: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),

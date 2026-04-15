@@ -5,6 +5,7 @@ class LocalStorageService {
   static const _totalScoreKey = 'total_score';
   static const _userNameKey = 'user_name';
   static const _favoriteWordsKey = 'favorite_words';
+  static const _darkModeEnabledKey = 'dark_mode_enabled';
 
   late SharedPreferences _preferences;
 
@@ -42,5 +43,13 @@ class LocalStorageService {
 
   Future<void> saveFavoriteWords(Set<String> words) async {
     await _preferences.setStringList(_favoriteWordsKey, words.toList());
+  }
+
+  bool getDarkModeEnabled() {
+    return _preferences.getBool(_darkModeEnabledKey) ?? false;
+  }
+
+  Future<void> saveDarkModeEnabled(bool enabled) async {
+    await _preferences.setBool(_darkModeEnabledKey, enabled);
   }
 }

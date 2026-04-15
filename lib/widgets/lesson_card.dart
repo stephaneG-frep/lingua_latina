@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lingua_latina/models/lesson.dart';
-import 'package:lingua_latina/theme/app_theme.dart';
 
 class LessonCard extends StatelessWidget {
   const LessonCard({
@@ -18,6 +17,8 @@ class LessonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Card(
       margin: const EdgeInsets.only(bottom: 14),
       child: InkWell(
@@ -33,29 +34,36 @@ class LessonCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                       lesson.title,
-                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        color: colorScheme.onSurface,
+                      ),
                     ),
                   ),
                   if (isCompleted)
-                    const Icon(Icons.verified_rounded, color: AppTheme.bordeaux),
+                    Icon(Icons.verified_rounded, color: colorScheme.primary),
                 ],
               ),
               const SizedBox(height: 8),
-              Text(lesson.level, style: const TextStyle(color: AppTheme.bordeaux)),
+              Text(lesson.level, style: TextStyle(color: colorScheme.primary)),
               const SizedBox(height: 12),
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: LinearProgressIndicator(
                   value: progress,
                   minHeight: 8,
-                  backgroundColor: AppTheme.softGold.withValues(alpha: 0.25),
-                  valueColor: const AlwaysStoppedAnimation<Color>(AppTheme.bordeaux),
+                  backgroundColor: colorScheme.primary.withValues(alpha: 0.22),
+                  valueColor: AlwaysStoppedAnimation<Color>(colorScheme.primary),
                 ),
               ),
               const SizedBox(height: 6),
               Text(
                 '${(progress * 100).toInt()}% progression',
-                style: const TextStyle(fontSize: 12, color: Colors.black54),
+                style: TextStyle(
+                  fontSize: 12,
+                  color: colorScheme.onSurfaceVariant,
+                ),
               ),
             ],
           ),

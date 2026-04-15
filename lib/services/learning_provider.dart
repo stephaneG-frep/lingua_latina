@@ -13,11 +13,13 @@ class LearningProvider extends ChangeNotifier {
   Set<String> _favoriteWords = <String>{};
   int _totalScore = 0;
   String _userName = 'Discipulus';
+  bool _isDarkModeEnabled = false;
 
   Set<String> get completedLessonIds => _completedLessonIds;
   Set<String> get favoriteWords => _favoriteWords;
   int get totalScore => _totalScore;
   String get userName => _userName;
+  bool get isDarkModeEnabled => _isDarkModeEnabled;
 
   int get completedLessonsCount => _completedLessonIds.length;
 
@@ -35,6 +37,7 @@ class LearningProvider extends ChangeNotifier {
     _favoriteWords = _storageService.getFavoriteWords();
     _totalScore = _storageService.getTotalScore();
     _userName = _storageService.getUserName();
+    _isDarkModeEnabled = _storageService.getDarkModeEnabled();
     notifyListeners();
   }
 
@@ -75,6 +78,12 @@ class LearningProvider extends ChangeNotifier {
       _favoriteWords = {..._favoriteWords, key};
     }
     await _storageService.saveFavoriteWords(_favoriteWords);
+    notifyListeners();
+  }
+
+  Future<void> setDarkModeEnabled(bool enabled) async {
+    _isDarkModeEnabled = enabled;
+    await _storageService.saveDarkModeEnabled(enabled);
     notifyListeners();
   }
 

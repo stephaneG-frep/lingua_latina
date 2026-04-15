@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lingua_latina/models/culture_item.dart';
-import 'package:lingua_latina/theme/app_theme.dart';
 
 class CultureCard extends StatelessWidget {
   const CultureCard({super.key, required this.item});
@@ -9,6 +8,8 @@ class CultureCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       child: Padding(
@@ -18,16 +19,25 @@ class CultureCard extends StatelessWidget {
           children: [
             Text(
               item.latin,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w700,
-                color: AppTheme.bordeaux,
+                color: colorScheme.primary,
               ),
             ),
             const SizedBox(height: 4),
-            Text(item.french, style: const TextStyle(fontWeight: FontWeight.w600)),
+            Text(
+              item.french,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: colorScheme.onSurface,
+              ),
+            ),
             const SizedBox(height: 8),
-            Text(item.context),
+            Text(
+              item.context,
+              style: TextStyle(color: colorScheme.onSurfaceVariant),
+            ),
           ],
         ),
       ),

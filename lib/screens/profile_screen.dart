@@ -73,6 +73,20 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
+              Card(
+                child: SwitchListTile(
+                  title: const Text(
+                    'Theme sombre',
+                    style: TextStyle(fontWeight: FontWeight.w700),
+                  ),
+                  subtitle: const Text('Inverse les couleurs et conserve le mode clair.'),
+                  value: provider.isDarkModeEnabled,
+                  onChanged: (enabled) {
+                    context.read<LearningProvider>().setDarkModeEnabled(enabled);
+                  },
+                ),
+              ),
+              const SizedBox(height: 10),
               const Text(
                 'Badges',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
